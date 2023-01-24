@@ -1,10 +1,18 @@
+require_relative 'card'
+
 class Board
   attr_reader :size
 
   def initialize
     @size = 4 * 4  #maybe change to 5 * 5 later
     @grid = Array.new(5) { Array.new(5) {[]} }
-    
+    @cards_fv = []
+    # @card_fv = Card.new.face_val
+    # @cards_fv << @card_fv
+    (@size / 2).times do
+      @cards_fv << Card.new.face_val
+    end
+    @cards_fv += @cards_fv
   end
 
 
@@ -35,18 +43,17 @@ class Board
   end
 
   def populate
-    random_coords = Array.new(2) { rand(0...@grid.length) }
-    i = @size/2
-      i.times do 
-        rand_card = Card.new
-
+    random_coords = Array.new(2) { rand(1...@grid.length) }
+    # i = @size/
+    #   i.times do 
+    @cards_fv.each do |char|
         if self[random_coords].empty?
-          self[random_coords] += rand_card.face_val
+          self[random_coords] = char
         else
           while !self[random_coords].empty?
-            random_coords = Array.new(2) { rand(0...@grid.length) }
+            random_coords = Array.new(2) { rand(1...@grid.length) }
           end
-            self[random_coords] += rand_card.face_val
+            self[random_coords] = char
         end
       end
   end
