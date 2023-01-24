@@ -5,7 +5,7 @@ class Board
 
   def initialize
     @size = 4 * 4  #maybe change to 5 * 5 later
-    @grid = Array.new(5) { Array.new(5) {[]} }
+    @grid = Array.new(5) { Array.new(5) }
     @cards_fv = []
     # @card_fv = Card.new.face_val
     # @cards_fv << @card_fv
@@ -29,15 +29,15 @@ class Board
 
 
   def borders
+    i = 0
     @grid[0][1..-1].each do |el|
-      i = 0
-      el << i
+      el = i
       i += 1
     end
 
+    i = 0
     @grid[1..-1].each do |row|
-      i = 0
-      row[0] << i 
+      row[0] = i 
       i += 1
     end
   end
@@ -47,10 +47,10 @@ class Board
     # i = @size/
     #   i.times do 
     @cards_fv.each do |char|
-        if self[random_coords].empty?
+        if self[random_coords].nil?
           self[random_coords] = char
         else
-          while !self[random_coords].empty?
+          while !self[random_coords].nil?
             random_coords = Array.new(2) { rand(1...@grid.length) }
           end
             self[random_coords] = char

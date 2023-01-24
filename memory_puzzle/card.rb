@@ -10,7 +10,7 @@ class Card
         alpha = ("a".."z").to_a
         face_val = alpha.sample
         @hidden = true
-        @face_val = [face_val]
+        @face_val = face_val
         @@all_cards << self
         # @board = Board.new
     end
