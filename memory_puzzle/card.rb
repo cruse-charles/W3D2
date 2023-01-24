@@ -1,33 +1,36 @@
 require_relative 'board'
 
 class Card
-    attr_reader :face_val, :state
+    attr_reader :face_val
+    attr_accessor :hidden
+
     @@all_cards = []
 
     def initialize
         alpha = ("a".."z").to_a
         face_val = alpha.sample
-        @state = "hidden"
+        @hidden = true
         @face_val = [face_val]
         @@all_cards << self
+        # @board = Board.new
     end
 
     
     # def self.shuffle
-    #     Board.size.times do
-    #         self.new 
+    #     @board.size.times do
+    #         self.new
     #     end
         
     # end
 
 
     def hide
-        self.state = "hidden"
+        self.hidden = true
     end
 
 
     def reveal
-        self.state = "shown"
+        self.hidden = false
     end
 
 

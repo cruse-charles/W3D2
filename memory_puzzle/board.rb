@@ -54,11 +54,11 @@ class Board
 
 
   def won?
-
+    return "You win!" if @grid.none? { |arr| arr.empty?}
   end
 
 
-  def reveal
+  def reveal(guessed_pos)
 
   end
 
