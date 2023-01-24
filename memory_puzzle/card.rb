@@ -4,7 +4,7 @@ class Card
     def initialize(face_val)
         @state = hidden
         @face_val = face_val
-
+        alpha = ("a".."z").to_a
     end
 
 
