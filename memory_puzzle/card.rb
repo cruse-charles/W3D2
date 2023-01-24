@@ -8,7 +8,7 @@ class Card
         alpha = ("a".."z").to_a
         face_val = alpha.sample
         @state = "hidden"
-        @face_val = face_val
+        @face_val = [face_val]
         @@all_cards << self
     end
 
