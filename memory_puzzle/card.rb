@@ -1,20 +1,29 @@
 class Card
     attr_reader :face_val, :state
 
-    def initialize(face_val)
-        @state = hidden
-        @face_val = face_val
+    def initialize
         alpha = ("a".."z").to_a
+        face_val = alpha.sample
+        @state = "hidden"
+        @face_val = face_val
+        
+    end
+
+    
+    def self.shuffle
+
     end
 
 
     def hide
-        self.state = hidden
+        self.state = "hidden"
     end
 
+
     def reveal
-        self.state = shown
+        self.state = "shown"
     end
+
 
     def ==(other_card)
         self.face_val == other_card.face_val

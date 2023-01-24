@@ -11,7 +11,7 @@ class Board
     rand_row = rand(1...@grid.length)
     # alpha = ("a".."z").to_a
 
-    @size.times 
+     
   end
 
 
