@@ -4,6 +4,7 @@ class Board
   def initialize
     @size = 4 * 4  #maybe change to 5 * 5 later
     @grid = Array.new(5) { Array.new(5) {[]} }
+    
   end
 
 
@@ -19,32 +20,35 @@ class Board
   end
 
 
-  def populate
+  def borders
     @grid[0][1..-1].each do |el|
       i = 0
       el << i
       i += 1
     end
-    # rand_col = rand(1...@grid.length)
-    # rand_row = rand(1...@grid.length)
+
+    @grid[1..-1].each do |row|
+      i = 0
+      row[0] << i 
+      i += 1
+    end
+  end
+
+  def populate
     random_coords = Array.new(2) { rand(0...@grid.length) }
     i = @size/2
-    # c = 0
-
-    # while c < @size
       i.times do 
-        # rand_col = rand(1...@grid.length)
-        # rand_row = rand(1...@grid.length)
         rand_card = Card.new
 
         if self[random_coords].empty?
           self[random_coords] += rand_card.face_val
-          self[random_coords] += rand_card.face_val  
-          # c += 2
+        else
+          while !self[random_coords].empty?
+            random_coords = Array.new(2) { rand(0...@grid.length) }
+          end
+            self[random_coords] += rand_card.face_val
         end
-
       end
-    # end
   end
 
 
