@@ -1,3 +1,5 @@
+require_relative 'board'
+
 class Card
     attr_reader :face_val, :state
 
@@ -6,7 +8,6 @@ class Card
         face_val = alpha.sample
         @state = "hidden"
         @face_val = face_val
-        
     end
 
     

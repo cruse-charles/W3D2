@@ -9,9 +9,8 @@ class Board
   def populate
     rand_col = rand(1...@grid.length)
     rand_row = rand(1...@grid.length)
-    # alpha = ("a".."z").to_a
 
-     
+    @size.times
   end
 
 
