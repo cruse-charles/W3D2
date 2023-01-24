@@ -2,17 +2,22 @@ require_relative 'board'
 
 class Card
     attr_reader :face_val, :state
+    @@all_cards = []
 
     def initialize
         alpha = ("a".."z").to_a
         face_val = alpha.sample
         @state = "hidden"
         @face_val = face_val
+        @@all_cards << self
     end
 
     
     def self.shuffle
-
+        Board.size.times do
+            self.new 
+        end
+        
     end
 
 
