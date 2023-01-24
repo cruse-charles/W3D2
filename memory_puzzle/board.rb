@@ -7,14 +7,37 @@ class Board
   end
 
 
-  def populate
-    rand_col = rand(1...@grid.length)
-    rand_row = rand(1...@grid.length)
-    i = @size/2
+  def [](position)
+    row, col = position
+    @grid[row][col]
+  end
 
-    i.times do 
-      rand_card = Card.new
-      @grid[rand_row][rand_col] << rand_card.face_val if @grid[rand_row][rand_col].empty? 
+
+  def []=(position)
+    
+  end
+
+
+  def populate
+    # rand_col = rand(1...@grid.length)
+    # rand_row = rand(1...@grid.length)
+    random_coords = Array.new(2) { rand(0...@grid.length) }
+    i = @size/2
+    c = 0
+
+    while c < @size
+      i.times do 
+        # rand_col = rand(1...@grid.length)
+        # rand_row = rand(1...@grid.length)
+        rand_card = Card.new
+
+        if @grid[random_coords].empty?
+          @grid[random_coords] << rand_card.face_val
+          @grid[random_coords] << rand_card.face_val  
+          c += 2
+        end
+
+      end
     end
   end
 
