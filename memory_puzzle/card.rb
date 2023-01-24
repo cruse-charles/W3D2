@@ -13,12 +13,12 @@ class Card
     end
 
     
-    def self.shuffle
-        Board.size.times do
-            self.new 
-        end
+    # def self.shuffle
+    #     Board.size.times do
+    #         self.new 
+    #     end
         
-    end
+    # end
 
 
     def hide
